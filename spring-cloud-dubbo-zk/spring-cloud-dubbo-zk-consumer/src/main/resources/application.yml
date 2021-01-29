@@ -1,0 +1,15 @@
+dubbo:
+  cloud:
+    subscribed-services: user-service
+
+spring:
+  application:
+    name: user-consumer
+  cloud:
+    zookeeper:
+      discovery:
+        register: false
+      connect-string: 192.168.25.10:2181
+
+server:
+  port: 8081

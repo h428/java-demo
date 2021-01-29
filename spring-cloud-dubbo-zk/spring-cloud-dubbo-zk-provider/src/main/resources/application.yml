@@ -1,0 +1,13 @@
+dubbo:
+  protocol:
+    port: 20880
+    name: dubbo
+
+spring:
+  application:
+    name: user-service
+  cloud:
+    zookeeper:
+      discovery:
+        register: true
+      connect-string: 192.168.25.10:2181
