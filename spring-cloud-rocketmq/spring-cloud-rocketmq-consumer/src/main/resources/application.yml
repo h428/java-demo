@@ -1,0 +1,25 @@
+
+spring:
+  cloud:
+    stream:
+      rocketmq:
+        binder:
+          name-server: 192.168.25.10:9876
+      bindings:
+        # TopicOut 的消息复制会复制三份并分别发送到对应的 input, input1, input2，三个监听都能接收到
+        # 其中 input 是默认的，在 Sink.INPUT 中定义
+        # input1 和 input2 为自定义，在自定义的 InputChannel 中定义
+        input:
+          destination: TopicOutput
+          group: g-input
+        input1:
+          destination: TopicOutput
+          group: g1-input
+        input2:
+          destination: TopicOutput
+          group: g2-input
+        orderInput:
+          destination: TopicOrder
+          group: g-order-input
+server:
+  port: 8081

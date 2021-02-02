@@ -1,0 +1,40 @@
+spring:
+  datasource:
+    username: root
+    password: root
+    url: jdbc:mysql://192.168.25.13:3306/demo?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  application:
+    name: spring-boot-seata-order-provider
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.25.10:8848
+mybatis:
+  mapper-locations: classpath*:com/hao/demo/dal/mapper/*Mapper.xml
+  type-aliases-package: com.hao.demo.dal.entity
+  configuration:
+    map-underscore-to-camel-case: true
+dubbo:
+  application:
+    name: ${spring.application.name}
+  registry:
+    address: nacos://192.168.25.10:8848
+    subscribe: true
+  protocol:
+    name: dubbo
+    port: 20880
+  scan:
+    base-packages: com.hao.demo.service
+seata:
+  enabled: true
+  tx-service-group: ${spring.application.name}
+  registry:
+    type: nacos
+    nacos:
+      server-addr: 192.168.25.10:8848
+  config:
+    type: nacos
+    nacos:
+      serverAddr: 192.168.25.10:8848
+  enable-auto-data-source-proxy: true

@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: spring-boot-seata-rest-web
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.25.10:8848
+dubbo:
+  application:
+    name: ${spring.application.name}
+  registry:
+    address: nacos://192.168.25.10:8848
+    subscribe: true
+  scan:
+    base-packages: com.hao.demo.service
+  protocol:
+    name: dubbo
+    port: 20884
+seata:
+  enabled: true
+  tx-service-group: ${spring.application.name}
+  registry:
+    type: nacos
+    nacos:
+      server-addr: 192.168.25.10:8848
+  config:
+    type: nacos
+    nacos:
+      serverAddr: 192.168.25.10:8848
+  enable-auto-data-source-proxy: false
+
