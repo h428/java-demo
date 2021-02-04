@@ -4,7 +4,7 @@ spring:
     stream:
       rocketmq:
         binder:
-          name-server: 192.168.25.10:9876
+          name-server: 192.168.25.43:9876
       bindings:
         # TopicOut 的消息复制会复制三份并分别发送到对应的 input, input1, input2，三个监听都能接收到
         # 其中 input 是默认的，在 Sink.INPUT 中定义

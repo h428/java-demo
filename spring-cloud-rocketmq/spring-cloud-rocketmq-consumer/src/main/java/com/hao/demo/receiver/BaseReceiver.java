@@ -1,6 +1,7 @@
 package com.hao.demo.receiver;
 
 import com.hao.demo.channel.InputChannel;
+import com.hao.demo.entity.Order;
 import org.springframework.cloud.stream.annotation.StreamListener;
 import org.springframework.cloud.stream.messaging.Sink;
 import org.springframework.stereotype.Component;
@@ -24,8 +25,8 @@ public class BaseReceiver {
     }
 
     @StreamListener(InputChannel.ORDER_INPUT)
-    public void receiveOrderOutput(String msg) {
-        System.out.println("order-input receive：" + msg + ", time = " + System.currentTimeMillis());
+    public void receiveOrderOutput(Order order) {
+        System.out.println("order-input receive：" + order + ", time = " + System.currentTimeMillis());
     }
 
 

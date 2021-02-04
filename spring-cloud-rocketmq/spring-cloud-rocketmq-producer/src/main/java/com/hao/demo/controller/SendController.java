@@ -1,5 +1,6 @@
 package com.hao.demo.controller;
 
+import com.hao.demo.entity.Order;
 import com.hao.demo.source.OrderSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.stream.messaging.Source;
@@ -28,11 +29,12 @@ public class SendController {
         return "send " + msg + " to TopicOutput success";
     }
 
-    @GetMapping("order/{msg}")
-    public String sendOrder(@PathVariable String msg) {
-        MessageBuilder<String> messageBuilder = MessageBuilder.withPayload(msg);
-        Message<String> message = messageBuilder.build();
+    @GetMapping("order/{name}/{cnt}")
+    public String sendOrder(@PathVariable String name, @PathVariable Integer cnt) {
+        Order order = Order.builder().name(name).cnt(cnt).build();
+        MessageBuilder<Order> messageBuilder = MessageBuilder.withPayload(order);
+        Message<Order> message = messageBuilder.build();
         orderSource.output().send(message);
-        return "send " + msg + " to TopicOrder success";
+        return "send " + order + " to TopicOrder success";
     }
 }
