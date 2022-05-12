@@ -1,0 +1,5 @@
+server:
+  port: 8081
+
+# 使用程序参数 --spring.profiles.active=dev 激活不同环境
+test: devvvvvvvvvvvvv

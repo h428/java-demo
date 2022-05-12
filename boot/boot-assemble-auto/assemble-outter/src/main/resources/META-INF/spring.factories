@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.hao.outer.FirstConfiguration,\
+com.hao.outer.SecondConfiguration
