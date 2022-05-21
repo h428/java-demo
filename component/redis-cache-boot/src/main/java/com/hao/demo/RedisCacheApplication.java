@@ -2,6 +2,8 @@ package com.hao.demo;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.hao.demo.builder.ObjectMapperBuilder;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
@@ -10,7 +12,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.core.annotation.Order;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
@@ -20,6 +21,8 @@ public class RedisCacheApplication {
     @Autowired
     private RedisTemplate<String, Object> redisTemplate;
 
+    private static final Logger log = LoggerFactory.getLogger(RedisCacheApplication.class);
+
     @Bean
     @Order(10)
     public ApplicationRunner setter() {
@@ -27,6 +30,7 @@ public class RedisCacheApplication {
             for (int i = 0; i < 10; i++) {
                 int num = (int)(Math.random() * 100);
                 redisTemplate.opsForValue().set("name:" + num, num);
+                log.info("put name{} with value {}", num, num);
             }
         };
     }

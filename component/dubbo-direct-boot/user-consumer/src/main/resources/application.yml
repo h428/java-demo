@@ -1,0 +1,13 @@
+
+spring:
+  application:
+    name: user-consumer
+
+dubbo:
+  application:
+    name: user-consumer
+  protocol:
+    name: dubbo
+    port: 20880
+  registry:
+    address: N/A
