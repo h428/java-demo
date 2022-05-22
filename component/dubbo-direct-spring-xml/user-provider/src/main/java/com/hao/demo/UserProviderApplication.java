@@ -3,7 +3,7 @@ package com.hao.demo;
 import org.apache.dubbo.container.Main;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class ProviderApplication {
+public class UserProviderApplication {
 
     public static void main(String[] args) {
         // 从 xml 文件创建上下文

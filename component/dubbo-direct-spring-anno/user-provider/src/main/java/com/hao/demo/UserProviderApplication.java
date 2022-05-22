@@ -5,7 +5,7 @@ import com.hao.demo.config.ProviderConfig;
 import org.apache.dubbo.container.Main;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-public class ProviderApplication {
+public class UserProviderApplication {
 
     public static void main(String[] args) {
         // 从注解类文件创建上下文
