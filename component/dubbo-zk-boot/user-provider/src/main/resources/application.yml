@@ -1,0 +1,17 @@
+
+
+spring:
+  application:
+    name: user-provider
+
+dubbo:
+  application:
+    # 建议配置 spring.application.name 并让 dubbo.application.name 和其一致
+    name: ${spring.application.name}
+  protocol:
+    name: dubbo
+    port: 20880
+  registry:
+    # 选择 zookeeper 作为注册中心
+    address: zookeeper://192.168.25.40:2181
+    #address: zookeeper://124.221.132.55:2181?timeout=600000

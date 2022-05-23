@@ -1,0 +1,13 @@
+
+spring:
+  application:
+    name: another-consumer
+
+dubbo:
+  application:
+    name: ${spring.application.name}
+  protocol:
+    name: dubbo
+    port: 20880
+  registry:
+    address: zookeeper://192.168.25.40:2181
