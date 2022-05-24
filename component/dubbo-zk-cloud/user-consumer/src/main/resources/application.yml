@@ -1,0 +1,27 @@
+
+spring:
+  application:
+    name: user-consumer
+  cloud:
+    # 使用 spring cloud 提供的 zookeeper 连接启动器，配置前缀为 spring.cloud
+    zookeeper:
+      # zookeeper 连接地址，默认为 localhost:2181
+      connect-string: 192.168.25.40:2181
+      discovery:
+        # true 表示当前服务需要注册到注册中心，默认就是 true
+        register: false
+
+dubbo:
+  application:
+    name: ${spring.application.name}
+  protocol:
+    name: dubbo
+    # 对于 spring boot 版本的 dubbo 启动器，若当前应用无需提供 dubbo，则不会以服务提供者出现，不会占用传输端口
+    # 而 spring cloud alibaba 版本的 dubbo 启动器，只要引入则默认看做服务提供者，并占用 dubbo 传输端口
+    # 因此使用 spring cloud alibaba 版本的 dubbo 启动器时，该端口必须设置和 user-provider 不同，
+    # 否则会报端口占用错误（spring boot 版本不报错）
+    port: 20881
+    # 使用 spring cloud 版本的 zookeeper 启动器，
+    # 注册中心的配置不再在 dubbo 前缀下而是在 spring.cloud 前缀下
+#  registry:
+#    address: N/A

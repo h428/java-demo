@@ -8,6 +8,13 @@ dubbo:
     name: ${spring.application.name}
   protocol:
     name: dubbo
+    # dubbo.protocol.port 的端口占用，是针对服务提供者来说的，即服务提供者才会占用指定端口提供 dubbo 服务
+    # 对于 user-consumer，如果不以服务提供者的角色出现，则实际上该 port 配置不会产生作用
+    # 如果配置了 @DubboComponentScan 注解，同时扫描到了 dubbo 服务，则当前应用还会以服务提供者的角色出现，
+    # 此时 dubbo.protocol.port 必须不能和其他的 dubbo 服务提供者一样，否则会产生端口已占用的冲突导致启动异常
+    # 经测试：spring boot 版本的 dubbo 启动器较为灵活，若是开启了 @DubboComponentScan 扫描，但没有扫描到 @DubboService 服务
+    # 仍然不会以服务提供者的角色出现，不会占用 dubbo 传输端口
+    # 而 @Reference 注解只会以服务消费者的角色出现，会访问 dubbo 端口但自身不占用端口
     port: 20880
   registry:
     address: zookeeper://192.168.25.40:2181

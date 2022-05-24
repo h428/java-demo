@@ -3,12 +3,14 @@ package com.hao.demo;
 import com.hao.demo.api.AnotherService;
 import com.hao.demo.api.UserService;
 import org.apache.dubbo.config.annotation.DubboReference;
+import org.apache.dubbo.config.spring.context.annotation.DubboComponentScan;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
+@DubboComponentScan
 public class UserConsumerApplication {
 
     /**
