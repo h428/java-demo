@@ -34,6 +34,12 @@ public class UserConsumerApplication {
                 System.out.println("userService is null...");
                 return;
             }
+
+            if (anotherService == null) {
+                System.out.println("anotherService is null...");
+                return;
+            }
+
             System.out.println("found provider: " + anotherService.getAppName());
             System.out.println(userService.randomOne());
         };

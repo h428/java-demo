@@ -1,6 +1,7 @@
 package com.hao.demo;
 
 import com.hao.demo.api.AnotherService;
+import java.net.InetAddress;
 import org.apache.dubbo.config.spring.context.annotation.DubboComponentScan;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
@@ -33,6 +34,8 @@ public class UserProviderApplication {
     public ApplicationRunner applicationRunner(AnotherService anotherService) {
         return args -> {
             System.out.println(anotherService.getAppName() + " started success~~~~~~~~~~~~~~~~");
+            InetAddress localHost = InetAddress.getLocalHost();
+            System.out.println("current ip is : " + localHost.getHostAddress());
         };
     }
 

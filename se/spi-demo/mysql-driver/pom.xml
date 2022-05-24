@@ -3,13 +3,13 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <parent>
-    <artifactId>dubbo-zk-cloud</artifactId>
+    <artifactId>spi-demo</artifactId>
     <groupId>com.hao.demo</groupId>
     <version>1.0-SNAPSHOT</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
-  <artifactId>user-consumer</artifactId>
+  <artifactId>mysql-driver</artifactId>
 
   <properties>
     <maven.compiler.source>8</maven.compiler.source>
@@ -19,18 +19,8 @@
   <dependencies>
     <dependency>
       <groupId>com.hao.demo</groupId>
-      <artifactId>user-api</artifactId>
+      <artifactId>driver-interface</artifactId>
       <version>1.0-SNAPSHOT</version>
-<!--      <exclusions>-->
-<!--        <exclusion>-->
-<!--          <groupId>com.alibaba.cloud</groupId>-->
-<!--          <artifactId>spring-cloud-starter-dubbo</artifactId>-->
-<!--        </exclusion>-->
-<!--      </exclusions>-->
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
   </dependencies>
 

@@ -23,5 +23,7 @@ dubbo:
     port: 20881
     # 使用 spring cloud 版本的 zookeeper 启动器，
     # 注册中心的配置不再在 dubbo 前缀下而是在 spring.cloud 前缀下
+  consumer:
+    check: false
 #  registry:
 #    address: N/A
