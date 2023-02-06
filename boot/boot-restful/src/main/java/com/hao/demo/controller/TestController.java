@@ -12,6 +12,6 @@ public class TestController {
 
     @GetMapping("test")
     public String test() {
-        return String.valueOf(RANDOM.nextInt() >>> 1);
+        return "helload," + String.valueOf(RANDOM.nextInt() >>> 1);
     }
 }

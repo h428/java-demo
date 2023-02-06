@@ -33,8 +33,8 @@ import org.springframework.util.StringUtils;
  */
 public class MyAutoConfigurationMetadataLoader {
 
-	// 修改为 spring-autoconfigure-metadata2.properties 测试文件读取
-	protected static final String PATH = "META-INF/" + "spring-autoconfigure-metadata2.properties";
+	// 修改为 spring-autoconfigure-metadata.properties 测试文件读取
+	protected static final String PATH = "META-INF/" + "spring-autoconfigure-metadata.properties";
 
 	private MyAutoConfigurationMetadataLoader() {
 	}

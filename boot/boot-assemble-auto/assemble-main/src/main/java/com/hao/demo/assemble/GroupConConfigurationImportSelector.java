@@ -37,7 +37,8 @@ public class GroupConConfigurationImportSelector implements ImportSelector {
         // 基于该原理，我们可以在自己工程的 META-INF 目录编写自己的 spring.factories
         // 和 spring-autoconfigure-metadata.properties，Spring 一样会自动读取相关文件并进行自动装配，详情可
         // 样例请参考 assemble-outer 工程下的对应配置
-        return new String[]{FirstConfiguration.class.getName(), SecondConfiguration.class.getName()};
+        //return new String[]{FirstConfiguration.class.getName(), SecondConfiguration.class.getName()};
+        return new String[]{};
     }
 
 }
