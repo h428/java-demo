@@ -6,6 +6,9 @@ import com.hao.bank.types.UserId;
 import com.hao.bank.common.Repository;
 import com.hao.demo.bank.domain.entity.Account;
 
+/**
+ * infrastructure - 持久层接口
+ */
 public interface AccountRepository extends Repository<Account, AccountId> {
     Account find(AccountId id);
     Account find(AccountNumber accountNumber);

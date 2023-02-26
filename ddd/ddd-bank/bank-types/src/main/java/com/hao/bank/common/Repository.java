@@ -1,6 +1,5 @@
 package com.hao.bank.common;
 
-import com.sun.istack.internal.NotNull;
 
 public interface Repository<T extends Aggregate<ID>, ID extends Identifier> {
 
@@ -20,19 +19,19 @@ public interface Repository<T extends Aggregate<ID>, ID extends Identifier> {
      * 通过ID寻找Aggregate。
      * 找到的Aggregate自动是可追踪的
      */
-    T find(@NotNull ID id);
+    T find(ID id);
 
     /**
      * 将一个Aggregate从Repository移除
      * 操作后的aggregate对象自动取消追踪
      */
-    void remove(@NotNull T aggregate);
+    void remove(T aggregate);
 
     /**
      * 保存一个Aggregate
      * 保存后自动重置追踪条件
      */
-    void save(@NotNull T aggregate);
+    void save(T aggregate);
 
 
 }

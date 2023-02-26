@@ -11,7 +11,7 @@
     <modules>
         <module>bank-application</module>
         <module>bank-domain</module>
-        <module>ban-external</module>
+        <module>bank-external</module>
         <module>bank-messaging</module>
         <module>bank-persistence</module>
         <module>bank-start</module>
